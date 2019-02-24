@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.repository.PagingAndSortingRepository;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.support.JdbcDaoSupport;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -21,8 +22,12 @@ import java.util.Map;
 public class UsuariosDao extends JdbcDaoSupport {
 
     @Autowired
+    private DataSource dataSource1;
+    private JdbcTemplate jdbcTemplate;
+
     public UsuariosDao(DataSource dataSource1) {
         this.setDataSource(dataSource1);
+        this.jdbcTemplate = new JdbcTemplate(dataSource1);
     }
 
 
@@ -44,16 +49,14 @@ public class UsuariosDao extends JdbcDaoSupport {
     }
 
 
-    public void crearUsuario(Usuario usuario){
+    public void crearUsuario(Integer fiusuario, String password){
 
-        String sql = "INSERT INTO usuarios " +
-                "(fiusuario, password) VALUES (?, ?)";
-
-        getJdbcTemplate().update(sql, new Object[] { usuario.getFiusuario(),
-                usuario.getPassword()
-        });
+        JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource1);
+        jdbcTemplate.update("INSERT INTO usuarios(fiusuario, password)VALUES(?,?)",fiusuario,password );
 
     }
+
+
 
 
 }

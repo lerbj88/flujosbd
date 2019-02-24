@@ -57,19 +57,13 @@ public class UsuarioController {
     }
 
 
-    @PostMapping("/form")
-    public String agregar(@ModelAttribute(value = "usuario") Usuario usuario, BindingResult errors, SessionStatus status, ModelMap model) {
-        if (errors.hasErrors()) {
-            return "usuario/form";
-        }
+    @PostMapping("usuarios/form")
+    public String crearUsuario(@RequestParam("fiusuario") Integer fiusuario,
+                         @RequestParam("password")  String password,
+                          Model model) {
+        usuariosDao.crearUsuario(fiusuario, password);
 
-
-        status.setComplete();
-        //usuario.crearUsuario(usuario.getUsuario(), usuario.getPassword());
-        usuario.crearUsuario(usuario.getFiusuario(), usuario.getPassword());
-        model.addAttribute("crearusuario", usuario);
-
-        return "usuario/form";
+        return "redirect:/";
     }
 
 }

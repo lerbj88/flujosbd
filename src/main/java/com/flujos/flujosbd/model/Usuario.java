@@ -40,7 +40,7 @@ public class Usuario {
         this.password = password;
     }
 
-    public void crearUsuario(Integer Fiusuario, String Password) {
-    }
 
+    public void crearUsuario(Integer fiusuario, String password) {
+    }
 }
