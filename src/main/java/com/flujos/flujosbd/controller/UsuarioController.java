@@ -66,7 +66,7 @@ public class UsuarioController {
 
         status.setComplete();
         //usuario.crearUsuario(usuario.getUsuario(), usuario.getPassword());
-        usuario.crearUsuario(usuario.getFiusuario(), usuario.getFcpassword());
+        usuario.crearUsuario(usuario.getFiusuario(), usuario.getPassword());
         model.addAttribute("crearusuario", usuario);
 
         return "usuario/form";

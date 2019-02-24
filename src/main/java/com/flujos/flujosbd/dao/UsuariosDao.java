@@ -47,10 +47,10 @@ public class UsuariosDao extends JdbcDaoSupport {
     public void crearUsuario(Usuario usuario){
 
         String sql = "INSERT INTO usuarios " +
-                "(fiusuario, fcpassword) VALUES (?, ?)";
+                "(fiusuario, password) VALUES (?, ?)";
 
         getJdbcTemplate().update(sql, new Object[] { usuario.getFiusuario(),
-                usuario.getFcpassword()
+                usuario.getPassword()
         });
 
     }

@@ -5,15 +5,15 @@ public class Usuario {
 
     private Integer fiusuario;
     private String fcnombre;
-    private String fcpassword;
+    private String password;
 
     public Usuario() {
     }
 
-    public Usuario(Integer fiusuario, String fcnombre, String fcpassword) {
+    public Usuario(Integer fiusuario, String fcnombre, String password) {
         this.fiusuario = fiusuario;
         this.fcnombre = fcnombre;
-        this.fcpassword = fcpassword;
+        this.password = password;
     }
 
     public Integer getFiusuario() {
@@ -32,15 +32,15 @@ public class Usuario {
         this.fcnombre = fcnombre;
     }
 
-    public String getFcpassword() {
-        return fcpassword;
+    public String getPassword() {
+        return password;
     }
 
-    public void setFcpassword(String fcpassword) {
-        this.fcpassword = fcpassword;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
-    public void crearUsuario(Integer Fiusuario, String Fcpassword) {
+    public void crearUsuario(Integer Fiusuario, String Password) {
     }
 
 }

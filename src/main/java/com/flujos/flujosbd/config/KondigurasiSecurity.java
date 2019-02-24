@@ -17,7 +17,7 @@ import javax.sql.DataSource;
 public class KondigurasiSecurity extends WebSecurityConfigurerAdapter{
     public static final String SQL_LOGIN
 
-            ="select fiusuario, fcpassword, active\n" +
+            ="select fiusuario, password, active\n" +
             "from usuarios where fiusuario = ?";
 
     public static final String SQL_PERMISSION
