@@ -39,4 +39,8 @@ public class Usuario {
     public void setFcpassword(String fcpassword) {
         this.fcpassword = fcpassword;
     }
+
+    public void crearUsuario(Integer Fiusuario, String Fcpassword) {
+    }
+
 }
