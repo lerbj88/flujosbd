@@ -1,7 +1,7 @@
 package com.flujos.flujosbd.controller;
 
 
-import com.flujos.flujosbd.dao.UsuariosDao;
+import com.flujos.flujosbd.dao.UsuarioDao;
 import com.flujos.flujosbd.model.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -19,7 +19,7 @@ import java.util.List;
 public class UsuarioController {
 
     @Autowired
-    private UsuariosDao usuariosDao;
+    private UsuarioDao usuarioDao;
 /*
     @RequestMapping(value = { "usuarios/list" }, method = RequestMethod.GET)
     public String listarUsuarios(Model model) throws SQLException {
@@ -41,7 +41,7 @@ public class UsuarioController {
     @RequestMapping(value = { "usuarios/list" }, method = RequestMethod.GET)
     public String listarUsuarios(Model model) throws SQLException {
 
-        List<Usuario> list = usuariosDao.findAll();
+        List<Usuario> list = usuarioDao.findAll();
         model.addAttribute("listarUsuarios", list);
 
         return "usuarios/list";
@@ -61,7 +61,7 @@ public class UsuarioController {
     public String crearUsuario(@RequestParam("fiusuario") Integer fiusuario,
                          @RequestParam("password")  String password,
                           Model model) {
-        usuariosDao.crearUsuario(fiusuario, password);
+        usuarioDao.crearUsuario(fiusuario, password);
 
         return "redirect:/";
     }

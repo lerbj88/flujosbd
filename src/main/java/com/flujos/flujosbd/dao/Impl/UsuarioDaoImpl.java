@@ -1,16 +1,12 @@
-package com.flujos.flujosbd.dao;
+package com.flujos.flujosbd.dao.Impl;
 
+import com.flujos.flujosbd.dao.UsuarioDao;
 import com.flujos.flujosbd.model.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.support.JdbcDaoSupport;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.GetMapping;
 
 import javax.sql.DataSource;
 import java.util.ArrayList;
@@ -19,13 +15,13 @@ import java.util.Map;
 
 @Repository
 @Transactional
-public class UsuariosDao extends JdbcDaoSupport {
+public class UsuarioDaoImpl extends JdbcDaoSupport  implements UsuarioDao {
 
     @Autowired
     private DataSource dataSource1;
     private JdbcTemplate jdbcTemplate;
 
-    public UsuariosDao(DataSource dataSource1) {
+    public UsuarioDaoImpl(DataSource dataSource1) {
         this.setDataSource(dataSource1);
         this.jdbcTemplate = new JdbcTemplate(dataSource1);
     }
@@ -50,8 +46,8 @@ public class UsuariosDao extends JdbcDaoSupport {
 
 
     public void crearUsuario(Integer fiusuario, String password){
-
         JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource1);
+
         jdbcTemplate.update("INSERT INTO usuarios(fiusuario, password)VALUES(?,?)",fiusuario,password );
 
     }
